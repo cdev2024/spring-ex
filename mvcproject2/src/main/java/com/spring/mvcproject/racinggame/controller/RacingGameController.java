@@ -1,0 +1,27 @@
+package com.spring.mvcproject.racinggame.controller;
+
+import com.spring.mvcproject.racinggame.car.Car;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+@Controller
+public class RacingGameController {
+
+    private final Car car;
+
+    @Autowired
+    public RacingGameController(Car car) {
+        this.car = car;
+    }
+
+    @RequestMapping("/race")
+    @ResponseBody
+    public String startRace(@RequestParam(defaultValue = "v6") String engine){
+        car.setEngine(engine);
+        car.startCar();
+        return "Race started!";
+    }
+}

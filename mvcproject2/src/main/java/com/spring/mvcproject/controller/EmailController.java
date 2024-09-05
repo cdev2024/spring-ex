@@ -22,7 +22,7 @@ public class EmailController {
         // EmailServiceClient emailServiceClient = new EmailServiceClient(); // Spring에서 자동으로 주입받음
         SendEmailRequest sendEmailRequest = generateEmailRequest();
         emailServiceClient.sendEmail(sendEmailRequest);
-        return "Success";
+        return "성공";
     }
 
     public SendEmailRequest generateEmailRequest(){
