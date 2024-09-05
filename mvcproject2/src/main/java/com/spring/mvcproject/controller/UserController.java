@@ -53,8 +53,8 @@ public class UserController {
 
         if("test@test.com".equals(email) && "1234".equals(password)) {
             loggedUserManagementService.setUserName("테스트");
-            model.addAttribute("message", "로그인 성공!!!");
-            return "redirect:/main";
+            model.addAttribute("userName", loggedUserManagementService.getUserName());
+            return "main";
         } else{
             model.addAttribute("message", "로그인 실패");
         }
